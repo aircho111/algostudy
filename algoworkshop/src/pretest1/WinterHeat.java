@@ -24,7 +24,10 @@ public class WinterHeat {
 		
 		String[] NM;
 		String[] Ws;
+		String[] CPs;
+		
 		int[] Wi = new int[100];
+		int[][] CPi = new int[100][2];
 		int N = 0;
 		int M = 0;
 		
@@ -32,14 +35,30 @@ public class WinterHeat {
 		for(int i=0 ; i<T ; i++) {
 			
 			NM = (br.readLine()).split(" ");
+			
+			//가구수
 			N = Integer.parseInt(NM[0]);
+			
+			//간선수
 			M = Integer.parseInt(NM[1]);
 			
 			
 			Ws = (br.readLine()).split(" ");
+			
+			// 온도
 			for(int j=0 ; j<N ; j++){
-				
+				Wi[j] = Integer.parseInt(Ws[j]);
 			}
+			
+			// 간선정보
+			for(int j=0 ; j<M ; j++){
+				CPs = (br.readLine()).split(" ");
+				CPi[j][0] = Integer.parseInt(CPs[0]);
+				CPi[j][1] = Integer.parseInt(CPs[1]);
+			}
+			
+			
+			
 			
 		}
 		
