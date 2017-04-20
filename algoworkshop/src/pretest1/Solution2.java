@@ -1,6 +1,7 @@
 package pretest1;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -28,7 +29,8 @@ public class Solution2 {
 
 	public static void main(String[] args) throws Exception {
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		//BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new FileReader("C:/workplace/gitrepo/algoworkshop/src/pretest1/sample_input.txt"));
 
 		int T = Integer.parseInt(br.readLine());
 
@@ -230,6 +232,8 @@ public class Solution2 {
 
 
 		}
+		
+		br.close();
 		
 	}
 }
