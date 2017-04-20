@@ -1,4 +1,4 @@
-package WinterHeat;
+package pretest1;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -16,11 +16,11 @@ public class Solution {
 	static String[] Ws;
 	static String[] CPs;
 
-	static int[] Wi = new int[MAX_N];        // 가구별 필요온도
+	static int[] Wi = new int[MAX_N];        // �?구별 ?��?��?��?��
 	static int[] indegree = new int[MAX_N];  // 진입차수
-	static int[][] CPi = new int[MAX_M][2];  // 간선정보
-	static int N = 0;                      // 가구수
-	static int M = 0;                      // 간선수
+	static int[][] CPi = new int[MAX_M][2];  // 간선?���?
+	static int N = 0;                      // �?구수
+	static int M = 0;                      // 간선?��
 	static long totalTime = 0;
 	static int nodeTime = 0;
 	static int connectedNode = 0;
@@ -103,10 +103,10 @@ public class Solution {
 				}
 			}
 
-			// 2.큐에서 가구를 꺼내서 온도처리하고 연결된 가구도 처리 후 연결을 끊고 진입차수를 줄인다. 진입차수가 0인 경우 큐에 삽입
+			// 2.?��?��?�� �?구�?? 꺼내?�� ?��?��처리?���? ?��결된 �?구도 처리 ?�� ?��결을 ?���? 진입차수�? 줄인?��. 진입차수�? 0?�� 경우 ?��?�� ?��?��
 			int leaf = 0;
 
-			//			System.out.println(" == Queue 작업 ==" );
+			//			System.out.println(" == Queue ?��?�� ==" );
 			while(!searchQ.isEmpty()) {
 				leaf = searchQ.poll();
 
@@ -128,23 +128,23 @@ public class Solution {
 				}
 				
 				if(connectedNode >= 0) {
-					// 부모 온도 차감
+					// �?�? ?��?�� 차감
 					Wi[connectedNode] = Wi[connectedNode] - nodeTime;
 					
-					// 연결끊기
+					// ?��결끊�?
 					edges.get(leaf).remove(Integer.valueOf(connectedNode));
 					
-					// 연결된 부모Node의 진입차수 차감
+					// ?��결된 �?모Node?�� 진입차수 차감
 					indegree[connectedNode] = indegree[connectedNode] - 1;
 
-					// 연결된 가구의 진입차수가 1인 경우 큐에 삽입
+					// ?��결된 �?구의 진입차수�? 1?�� 경우 ?��?�� ?��?��
 					if(indegree[connectedNode] == 1) {
 						searchQ.offer(connectedNode);
 						//							System.out.println("  Connected Node" + (connectedNode+1) + " indegree 1 --> Queue" );
 					}
 				}
 
-//				// 연결된 부모Node를 찾기
+//				// ?��결된 �?모Node�? 찾기
 //				for(int j=0 ; j<M ; j++) {
 //					if(CPi[j][0] == leaf || CPi[j][1] == leaf) {
 //						if(CPi[j][0] == leaf) {
@@ -155,20 +155,20 @@ public class Solution {
 //
 //						if(connectedNode < 0) continue;
 //						//						System.out.println("  " + (leaf+1) + " Parent Node : "  + (connectedNode+1));
-//						// 부모 온도 차감
+//						// �?�? ?��?�� 차감
 //						Wi[connectedNode] = Wi[connectedNode] - nodeTime;
 //
-//						// 연결끊기
+//						// ?��결끊�?
 //						if(CPi[j][0] == leaf) {
 //							CPi[j][0] = -1;
 //						} else {
 //							CPi[j][1] = -1;
 //						}
 //
-//						// 연결된 부모Node의 진입차수 차감
+//						// ?��결된 �?모Node?�� 진입차수 차감
 //						indegree[connectedNode] = indegree[connectedNode] - 1;
 //
-//						// 연결된 가구의 진입차수가 1인 경우 큐에 삽입
+//						// ?��결된 �?구의 진입차수�? 1?�� 경우 ?��?�� ?��?��
 //						if(indegree[connectedNode] == 1) {
 //							searchQ.offer(connectedNode);
 //							//							System.out.println("  Connected Node" + (connectedNode+1) + " indegree 1 --> Queue" );
@@ -178,7 +178,7 @@ public class Solution {
 //				}
 //
 
-				// 부모Node와 연결된 Node 온도 차감
+				// �?모Node?? ?��결된 Node ?��?�� 차감
 				for(int j=0 ; j<M ; j++) {
 
 
@@ -190,7 +190,7 @@ public class Solution {
 							connectedNode2 = CPi[j][0];
 						}
 
-						// 연결된 가구의 필요온도 차감
+						// ?��결된 �?구의 ?��?��?��?�� 차감
 						if(connectedNode2 >= 0) {
 							//							System.out.println("  " + (connectedNode+1) + " Connect Node2 : "  + (connectedNode2+1));
 							Wi[connectedNode2] = Wi[connectedNode2] - nodeTime;
