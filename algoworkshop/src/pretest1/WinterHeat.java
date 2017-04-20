@@ -1,6 +1,6 @@
 package pretest1;
 
-import java.io.BufferedReader;
+import java.io.BufferedReader; 
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,26 +31,26 @@ public class WinterHeat {
 		int N = 0;
 		int M = 0;
 		
-		//TestCase ¸¸Å­ ¹İº¹
+		//TestCase ë§Œí¼ ë°˜ë³µ
 		for(int i=0 ; i<T ; i++) {
 			
 			NM = (br.readLine()).split(" ");
 			
-			//°¡±¸¼ö
+			//ê°€êµ¬ìˆ˜
 			N = Integer.parseInt(NM[0]);
 			
-			//°£¼±¼ö
+			//ê°„ì„ ìˆ˜
 			M = Integer.parseInt(NM[1]);
 			
 			
 			Ws = (br.readLine()).split(" ");
 			
-			// ¿Âµµ
+			// ì˜¨ë„
 			for(int j=0 ; j<N ; j++){
 				Wi[j] = Integer.parseInt(Ws[j]);
 			}
 			
-			// °£¼±Á¤º¸
+			// ê°„ì„ ì •ë³´
 			for(int j=0 ; j<M ; j++){
 				CPs = (br.readLine()).split(" ");
 				CPi[j][0] = Integer.parseInt(CPs[0]);
