@@ -19,8 +19,8 @@ public class Solution {
 	public static void main(String[] args) throws Exception {
 		
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//		BufferedReader br = new BufferedReader(new FileReader("C:/workplace/gitrepo/algoworkshop/src/pretest2/sample_input.txt"));
-		BufferedReader br = new BufferedReader(new FileReader("C:/workplace/algostudy/src/pretest2/sample_input2.txt"));
+		BufferedReader br = new BufferedReader(new FileReader("C:/workplace/gitrepo/algoworkshop/src/pretest2/sample_input.txt"));
+//		BufferedReader br = new BufferedReader(new FileReader("C:/workplace/algostudy/src/pretest2/sample_input2.txt"));
 		// 1. 테스트케이스 수
 		int T = Integer.parseInt(br.readLine().trim());
 		
