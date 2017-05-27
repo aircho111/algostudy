@@ -110,7 +110,7 @@ public class Solution {
 					}
 				}
 				
-//				System.out.println("*DAY" +  (i+1) + " turn-on machine cnt : " + daily_on_cnt);
+				System.out.println("*DAY" +  (i+1) + " turn-on machine cnt : " + daily_on_cnt);
 				
 				total_on_cnt = total_on_cnt + daily_on_cnt;
 				

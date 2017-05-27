@@ -48,7 +48,7 @@ public class Solution2 {
 			
 			for(int i=0 ; i<K ; i++) {
 				
-				g = Integer.parseInt(dayPlan[i]);
+				g = Integer.parseInt(dayPlan[i]); // 일자별 발전기
 				
 				if(al_gd[g-1] == null) {
 					al_gd[g-1] = new ArrayList<Integer>();
@@ -74,7 +74,7 @@ public class Solution2 {
 				
 				turn_on_day = searchFirstOpDay(i);
 				
-				System.out.println("*Machine" +  (i+1) + " turn-on day : " + turn_on_day);
+//				System.out.println("*Machine" +  (i+1) + " turn-on day : " + turn_on_day);
 				
 				if(turn_on_day > 0) {
 					day_on_cnt[turn_on_day-1]++; //해당 기계가 최초작동하는 일자를 구하여 기계수를 증가시킴
@@ -92,6 +92,10 @@ public class Solution2 {
 				
 				total_on_cnt = total_on_cnt + daily_on_cnt;
 				
+				System.out.println("*DAY" +  (i+1) + " turn-on machine cnt : " + daily_on_cnt);
+				
+//				System.out.println("*DAY" +  (i+1) + " total operating machine cnt : " + total_on_cnt);
+				
 				daily_score = total_on_cnt * (i+1);
 				
 				total_score = total_score + daily_score;
@@ -107,7 +111,7 @@ public class Solution2 {
 	
 	private static int searchFirstOpDay(int n) {
 
-        int first = 0;
+        int first = 1;
         int last = dayPlan.length;
 
 		int mid;
@@ -118,6 +122,8 @@ public class Solution2 {
 		int g;
 		ArrayList<Integer> gd ;
 		int mid_energy=0;
+		int max_day = 0;
+		
 		while(first <= last) {
 			mid = (first+last)/2;
 			
@@ -129,14 +135,24 @@ public class Solution2 {
 				gd = al_gd[g-1];
 				
 				if(gd != null) {
+					
+					//--> 여기도 이진탐색으로
 					for(int j=0 ; j<gd.size() ; j++) {
-						if(gd.get(j) <= mid) mid_energy++;
+						
+						if(gd.get(j) <= mid) {
+							mid_energy++;
+							
+							if(max_day < gd.get(j)) max_day = gd.get(j);
+						}
 						
 					}
 				}
 			}
 			
 			if(need_energy == mid_energy) {
+				
+				if(mid==19)
+					System.out.println("*DAY" +  mid + " turn-on machine : " + (n+1) + " max_day : " + max_day);
 				
 				return mid;
 				
